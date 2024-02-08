@@ -11,7 +11,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
+      - run: node -v # This will print the Node.js version
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        # rest of your steps
+
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CARE_LINK_APP }}'
